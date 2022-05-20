@@ -1,3 +1,1 @@
-def menu(opcion):
-    if opcion == 1:
-        
+def menu(opcion, tipo_documento,numero_documento):
