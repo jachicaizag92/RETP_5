@@ -89,6 +89,20 @@ def validar_fecha(fecha:str):
     except:
         return False
 
+def calc_edad(fecha:str):
+    """Funcion que permite calcular la edad al obtener una fecha de nacimiento
+
+    Args:
+        fecha (str): fecha de nacimiento en el formato(AAAA-MM-DD)
+
+    Returns:
+        int: retorna la edad calculada
+    """
+    fecha_nacimiento = dt.strptime(fecha, "%Y-%m-%d")
+    fecha_actual = dt.now()
+    edad = fecha_actual.year - fecha_nacimiento.year
+    return edad
+
 
 def validar_rh(rh:str):
     """Funcion que permite valiadar las primres posiciones del RH y grupo sanguineo
