@@ -142,3 +142,41 @@ def validar_correo(correo:str):
         return True
     else:
         return False
+
+def validar_cita(fecha: str, hora: str):
+    """Funcion que valida las fechas para uina cita 
+
+    Args:
+        fecha (str): fecha para solicitar cita
+        hora (str): hora para la cita solicitada
+
+    Returns:
+        bool: retorna True si la fecha de la cita solicitada es superior a la fecha actual
+            de lo contrario Falses
+    """
+    fecha_formato = fecha+' '+hora
+    fecha_cita = dt.strptime(fecha_formato, "%Y-%m-%d %H:%M")
+    fecha_actual = dt.now()
+    
+    if fecha_cita > fecha_actual:
+        return True
+    else:
+        return False
+    
+def registro_duplicado(reg,numero_doc):
+    """Funcion encargada de buscar un registro en el numero de documento duplicado
+
+    Args:
+        reg (list): lista con diccionarios dentro
+        numero_doc (str): numero de documento
+
+    Returns:
+        boolean: Retorna False si no esta repetido True en caso contrario
+    """
+    try:
+        next(x for x in reg if x['Número de documento: '] == numero_doc)
+        return False
+    except :
+        return True
+    
+            
